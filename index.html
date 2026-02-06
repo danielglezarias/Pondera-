@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pondera+ | Elige carrera y asignaturas con claridad</title>
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <meta
+      name="description"
+      content="Pondera+ traduce tu vocación y fortalezas en asignaturas estratégicas y compara universidades, incluso entre comunidades autónomas, para maximizar tus opciones en la PAU."
+    />
+
+    <style>
+      /* Suaviza el scroll entre secciones */
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Mejora legibilidad sobre fondos con imagen */
+      .text-shadow-soft {
+        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-950 text-slate-100">
+    <!-- Configuración rápida -->
+    <script>
+      /**
+       * IMPORTANTE:
+       * Cuando tengas tu endpoint, reemplaza la URL de CONTACT_ENDPOINT.
+       * Ejemplo:
+       * const CONTACT_ENDPOINT = "https://tu-dominio.com/api/contact";
+       */
+      const CONTACT_ENDPOINT = "REEMPLAZA_AQUI_TU_ENDPOINT";
+      const CONTACT_EMAIL = "danielglezarias@gmail.com";
+    </script>
+
+    <!-- NAV -->
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
+        <a href="#top" class="flex items-center gap-2">
+          <div class="grid h-9 w-9 place-items-center rounded-xl bg-white/10 ring-1 ring-white/15">
+            <span class="text-lg font-black tracking-tight">P+</span>
+          </div>
+          <div class="leading-tight">
+            <div class="text-sm font-semibold">Pondera+</div>
+            <div class="text-xs text-slate-300">Vocación, asignaturas, acceso</div>
+          </div>
+        </a>
+
+        <nav class="hidden items-center gap-6 text-sm text-slate-200 md:flex">
+          <a class="hover:text-white" href="#como-funciona">Cómo funciona</a>
+          <a class="hover:text-white" href="#beneficios">Beneficios</a>
+          <a class="hover:text-white" href="#comparador">Comparador</a>
+          <a class="hover:text-white" href="#faq">FAQ</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <a
+            href="#contacto"
+            class="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-slate-950 shadow-sm hover:bg-slate-100"
+          >
+            Solicitar acceso
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <main id="top">
+      <section class="relative overflow-hidden">
+        <!-- Fondo con imagen -->
+        <div class="absolute inset-0">
+          <img
+            src="https://img.freepik.com/foto-gratis/amigos-charlando-estudiando-escaleras-universidad_23-2147860766.jpg"
+            alt="Estudiantes estudiando juntos"
+            class="h-full w-full object-cover opacity-55"
+            loading="eager"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/85 to-slate-950"></div>
+          <div class="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-indigo-500/25 blur-3xl"></div>
+          <div class="absolute -right-40 top-24 h-[30rem] w-[30rem] rounded-full bg-cyan-400/20 blur-3xl"></div>
+        </div>
+
+        <div class="relative mx-auto max-w-7xl px-4 pb-16 pt-14 sm:px-6 sm:pb-24 sm:pt-20">
+          <div class="grid items-center gap-10 lg:grid-cols-2">
+            <div>
+              <div class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs text-slate-200 ring-1 ring-white/15">
+                <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                Comparador multiuniversidad y multicomunidad
+              </div>
+
+              <h1 class="mt-5 text-shadow-soft text-4xl font-extrabold tracking-tight sm:text-5xl">
+                Decide tu carrera y tus asignaturas con claridad, no con suerte
+              </h1>
+
+              <p class="mt-5 max-w-xl text-base text-slate-200 sm:text-lg">
+                Pondera+ traduce tus intereses y fortalezas en asignaturas de Bachillerato estratégicas, y te muestra
+                qué opciones reales tienes para acceder a una carrera, comparando universidades incluso entre comunidades autónomas.
+              </p>
+
+              <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a
+                  href="#contacto"
+                  class="inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-950 shadow-sm hover:bg-slate-100"
+                >
+                  Quiero acceso al prototipo
+                </a>
+                <a
+                  href="#como-funciona"
+                  class="inline-flex items-center justify-center rounded-xl bg-white/10 px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/15 hover:bg-white/15"
+                >
+                  Ver cómo funciona
+                </a>
+              </div>
+
+              <div class="mt-8 grid gap-3 sm:grid-cols-3">
+                <div class="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+                  <div class="text-sm font-semibold">Traducción vocación → asignaturas</div>
+                  <div class="mt-1 text-xs text-slate-300">Recomendación accionable, clara</div>
+                </div>
+                <div class="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+                  <div class="text-sm font-semibold">Simulación real</div>
+                  <div class="mt-1 text-xs text-slate-300">Ponderaciones y escenarios</div>
+                </div>
+                <div class="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+                  <div class="text-sm font-semibold">Comparación nacional</div>
+                  <div class="mt-1 text-xs text-slate-300">Universidades y comunidades</div>
+                </div>
+              </div>
+
+              <p class="mt-6 text-xs text-slate-400">
+                Imágenes, Freepik, atribución incluida al final.
+              </p>
+            </div>
+
+            <!-- Tarjeta demo -->
+            <div class="relative">
+              <div class="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <div class="text-sm font-semibold">Demo, visión rápida</div>
+                    <div class="text-xs text-slate-300">Ejemplo de flujo en 60 segundos</div>
+                  </div>
+                  <span class="rounded-full bg-emerald-400/15 px-3 py-1 text-xs text-emerald-200 ring-1 ring-emerald-300/20">
+                    Prototipo MVP
+                  </span>
+                </div>
+
+                <div class="mt-6 space-y-4">
+                  <div class="rounded-2xl bg-slate-950/40 p-4 ring-1 ring-white/10">
+                    <div class="text-xs text-slate-300">Paso 1</div>
+                    <div class="mt-1 text-sm font-semibold">Tu perfil</div>
+                    <div class="mt-2 text-xs text-slate-300">
+                      Intereses, asignaturas que se te dan bien, comunidad actual, universidades objetivo.
+                    </div>
+                  </div>
+
+                  <div class="rounded-2xl bg-slate-950/40 p-4 ring-1 ring-white/10">
+                    <div class="text-xs text-slate-300">Paso 2</div>
+                    <div class="mt-1 text-sm font-semibold">Asignaturas recomendadas</div>
+                    <div class="mt-2 flex flex-wrap gap-2">
+                      <span class="rounded-full bg-white/10 px-3 py-1 text-xs ring-1 ring-white/10">Matemáticas II</span>
+                      <span class="rounded-full bg-white/10 px-3 py-1 text-xs ring-1 ring-white/10">Física</span>
+                      <span class="rounded-full bg-white/10 px-3 py-1 text-xs ring-1 ring-white/10">Economía</span>
+                      <span class="rounded-full bg-white/10 px-3 py-1 text-xs ring-1 ring-white/10">Dibujo Técnico</span>
+                    </div>
+                    <div class="mt-2 text-xs text-slate-300">
+                      Explicación en lenguaje humano, qué puertas abre cada asignatura.
+                    </div>
+                  </div>
+
+                  <div class="rounded-2xl bg-slate-950/40 p-4 ring-1 ring-white/10">
+                    <div class="text-xs text-slate-300">Paso 3</div>
+                    <div class="mt-1 text-sm font-semibold">Comparación multiuniversidad</div>
+                    <div class="mt-3 grid gap-3 sm:grid-cols-2">
+                      <div class="rounded-xl bg-white/5 p-3 ring-1 ring-white/10">
+                        <div class="text-xs text-slate-300">Comunidad A</div>
+                        <div class="mt-1 text-sm font-semibold">Universidad 1</div>
+                        <div class="mt-2 text-xs text-slate-300">Opciones viables, 8</div>
+                      </div>
+                      <div class="rounded-xl bg-white/5 p-3 ring-1 ring-white/10">
+                        <div class="text-xs text-slate-300">Comunidad B</div>
+                        <div class="mt-1 text-sm font-semibold">Universidad 2</div>
+                        <div class="mt-2 text-xs text-slate-300">Opciones viables, 12</div>
+                      </div>
+                    </div>
+                    <div class="mt-2 text-xs text-slate-300">
+                      Mismo objetivo, diferentes ponderaciones, descubres oportunidades ocultas.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-6 rounded-2xl bg-gradient-to-r from-white/10 to-white/5 p-4 ring-1 ring-white/10">
+                  <div class="text-sm font-semibold">Resultado</div>
+                  <p class="mt-1 text-xs text-slate-300">
+                    Una recomendación accionable, comparada por universidades y comunidades, con margen y riesgo, para decidir con tranquilidad.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pointer-events-none absolute -bottom-8 -right-10 hidden h-52 w-52 rounded-full bg-indigo-500/20 blur-3xl lg:block"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LOGOS / TRUST -->
+      <section class="bg-slate-950">
+        <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6">
+          <div class="grid gap-6 rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 md:grid-cols-3 md:items-center">
+            <div class="md:col-span-1">
+              <div class="text-sm font-semibold">Diseñado para reducir incertidumbre</div>
+              <p class="mt-1 text-xs text-slate-300">
+                Ideal para estudiantes, familias y orientadores que quieren claridad, comparaciones reales y decisiones con sentido.
+              </p>
+            </div>
+            <div class="md:col-span-2">
+              <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                <div class="rounded-2xl bg-slate-950/40 p-4 text-center ring-1 ring-white/10">
+                  <div class="text-lg font-extrabold">1</div>
+                  <div class="text-xs text-slate-300">Perfil rápido</div>
+                </div>
+                <div class="rounded-2xl bg-slate-950/40 p-4 text-center ring-1 ring-white/10">
+                  <div class="text-lg font-extrabold">2</div>
+                  <div class="text-xs text-slate-300">Asignaturas</div>
+                </div>
+                <div class="rounded-2xl bg-slate-950/40 p-4 text-center ring-1 ring-white/10">
+                  <div class="text-lg font-extrabold">3</div>
+                  <div class="text-xs text-slate-300">Simulación</div>
+                </div>
+                <div class="rounded-2xl bg-slate-950/40 p-4 text-center ring-1 ring-white/10">
+                  <div class="text-lg font-extrabold">4</div>
+                  <div class="text-xs text-slate-300">Comparación</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CÓMO FUNCIONA -->
+      <section id="como-funciona" class="bg-slate-950">
+        <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+          <div class="max-w-2xl">
+            <h2 class="text-3xl font-extrabold tracking-tight">Cómo funciona Pondera+</h2>
+            <p class="mt-3 text-slate-300">
+              Un flujo simple que combina, lo que eres, con lo que el sistema exige, y te muestra opciones reales por universidad y comunidad.
+            </p>
+          </div>
+
+          <div class="mt-10 grid gap-6 lg:grid-cols-3">
+            <div class="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
+              <div class="flex items-center gap-3">
+                <span class="grid h-10 w-10 place-items-center rounded-2xl bg-white/10 ring-1 ring-white/10">1</span>
+                <div>
+                  <div class="text-sm font-semibold">Tu perfil</div>
+                  <div class="text-xs text-slate-300">Intereses, fortalezas, preferencias</div>
+                </div>
+              </div>
+              <p class="mt-4 text-sm text-slate-300">
+                Identificas áreas de interés, asignaturas que se te dan mejor, y el tipo de carreras que encajan contigo.
+              </p>
+            </div>
+
+            <div class="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
+              <div class="flex items-center gap-3">
+                <span class="grid h-10 w-10 place-items-center rounded-2xl bg-white/10 ring-1 ring-white/10">2</span>
+                <div>
+                  <div class="text-sm font-semibold">Traducción vocación → asignaturas</div>
+                  <div class="text-xs text-slate-300">Recomendación accionable</div>
+                </div>
+              </div>
+              <p class="mt-4 text-sm text-slate-300">
+                Pondera+ transforma tu perfil en asignaturas estratégicas de Bachillerato, con explicación clara de por qué convienen.
+              </p>
+            </div>
+
+            <div class="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
+              <div class="flex items-center gap-3">
+                <span class="grid h-10 w-10 place-items-center rounded-2xl bg-white/10 ring-1 ring-white/10">3</span>
+                <div>
+                  <div class="text-sm font-semibold">Simulación y comparación nacional</div>
+                  <div class="text-xs text-slate-300">Universidades y comunidades</div>
+                </div>
+              </div>
+              <p class="mt-4 text-sm text-slate-300">
+                Simulas escenarios reales y comparas el mismo objetivo entre universidades de distintas comunidades, para descubrir oportunidades y reducir riesgo.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-10 grid gap-6 lg:grid-cols-2">
+            <div class="overflow-hidden rounded-3xl bg-white/5 ring-1 ring-white/10">
+              <img
+                src="https://img.freepik.com/foto-gratis/placer-primero-luego-ir-nuestros-deberes_329181-8478.jpg"
+                alt="Estudiantes conversando y estudiando"
+                class="h-64 w-full object-cover opacity-90"
+                loading="lazy"
+              />
+              <div class="p-6">
+                <div class="text-sm font-semibold">Lenguaje humano</div>
+                <p class="mt-2 text-sm text-slate-300">
+                  Sin PDFs interminables, sin jerga administrativa, explicaciones directas, comparables, con foco en decisiones.
+                </p>
+              </div>
+            </div>
+
+            <div class="overflow-hidden rounded-3xl bg-white/5 ring-1 ring-white/10">
+              <img
+                src="https://img.freepik.com/foto-gratis/hombre-mujeres-mochilas_23-2147679005.jpg"
+                alt="Estudiantes caminando con mochilas"
+                class="h-64 w-full object-cover opacity-90"
+                loading="lazy"
+              />
+              <div class="p-6">
+                <div class="text-sm font-semibold">Comparación intercomunidades</div>
+                <p class="mt-2 text-sm text-slate-300">
+                  La misma carrera puede ser más accesible en otra comunidad, Pondera+ te lo muestra en segundos con filtros simples.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BENEFICIOS -->
+      <section id="beneficios" class="bg-slate-950">
+        <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+          <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+            <div>
+              <h2 class="text-3xl font-extrabold tracking-tight">Por qué esto cambia el juego</h2>
+              <p class="mt-3 text-slate-300">
+                Hoy existen calculadoras y tests, pero casi nadie conecta vocación con asignaturas, y además te permite comparar entre universidades y comunidades en un único flujo.
+              </p>
+
+              <div class="mt-8 space-y-4">
+                <div class="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
+                  <div class="text-sm font-semibold">Menos ansiedad, más control</div>
+                  <p class="mt-1 text-sm text-slate-300">
+                    Pasas de “no entiendo nada” a “sé qué hacer y por qué”, con un plan claro.
+                  </p>
+                </div>
+
+                <div class="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
+                  <div class="text-sm font-semibold">Decisiones tempranas, con información real</div>
+                  <p class="mt-1 text-sm text-slate-300">
+                    Evitas elegir optativas a ciegas, y reduces el típico “si lo hubiera sabido antes”.
+                  </p>
+                </div>
+
+                <div class="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
+                  <div class="text-sm font-semibold">Oportunidades ocultas</div>
+                  <p class="mt-1 text-sm text-slate-300">
+                    Comparas opciones en distintas comunidades, y descubres rutas que antes no considerabas.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
+              <div class="flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-semibold">Qué obtienes</div>
+                  <div class="text-xs text-slate-300">En un prototipo simple, ya validable</div>
+                </div>
+                <span class="rounded-full bg-white/10 px-3 py-1 text-xs ring-1 ring-white/10">MVP</span>
+              </div>
+
+              <ul class="mt-6 space-y-3 text-sm text-slate-300">
+                <li class="flex gap-3">
+                  <span class="mt-0.5 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                  Recomendación de asignaturas basada en tu perfil
+                </li>
+                <li class="flex gap-3">
+                  <span class="mt-0.5 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                  Simulación de escenarios de acceso con nota estimada
+                </li>
+                <li class="flex gap-3">
+                  <span class="mt-0.5 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                  Comparación entre universidades, incluso en distintas comunidades
+                </li>
+                <li class="flex gap-3">
+                  <span class="mt-0.5 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                  Resumen final con margen y riesgo, explicado con claridad
+                </li>
+              </ul>
+
+              <div class="mt-7 rounded-2xl bg-slate-950/40 p-5 ring-1 ring-white/10">
+                <div class="text-sm font-semibold">Objetivo del prototipo</div>
+                <p class="mt-1 text-sm text-slate-300">
+                  Validar si el estudiante entiende el sistema, se siente acompañado, y mejora su decisión en menos de 5 minutos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN COMPARADOR -->
+      <section id="comparador" class="bg-slate-950">
+        <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+          <div class="max-w-2xl">
+            <h2 class="text-3xl font-extrabold tracking-tight">Comparación multiuniversidad, incluso entre comunidades</h2>
+            <p class="mt-3 text-slate-300">
+              La misma carrera cambia según universidad y comunidad, Pondera+ lo convierte en una comparación simple, visual y accionable.
+            </p>
+          </div>
+
+          <div class="mt-10 grid gap-6 lg:grid-cols-3">
+            <div class="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
+              <div class="text-sm font-semibold">Filtro por objetivo</div>
+              <p class="mt-2 text-sm text-slate-300">
+                Eliges la carrera o área, y Pondera+ te muestra opciones reales en distintas universidades.
+              </p>
+            </div>
+
+            <div class="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
+              <div class="text-sm font-semibold">Comparación de ponderaciones</div>
+              <p class="mt-2 text-sm text-slate-300">
+                Ves rápidamente qué asignaturas pesan más en cada universidad, sin lenguaje técnico.
+              </p>
+            </div>
+
+            <div class="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
+              <div class="text-sm font-semibold">Decisión con margen</div>
+              <p class="mt-2 text-sm text-slate-300">
+                Identificas opciones con margen de seguridad, y alternativas para reducir riesgo.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-10 overflow-hidden rounded-3xl bg-white/5 ring-1 ring-white/10">
+            <div class="grid gap-0 lg:grid-cols-2">
+              <div class="p-8">
+                <div class="text-sm font-semibold">Ejemplo, comparativa rápida</div>
+                <p class="mt-2 text-sm text-slate-300">
+                  Con la misma nota estimada, puedes tener resultados muy distintos, Pondera+ te enseña dónde encajas mejor.
+                </p>
+
+                <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                  <div class="rounded-2xl bg-slate-950/40 p-4 ring-1 ring-white/10">
+                    <div class="text-xs text-slate-300">Comunidad</div>
+                    <div class="mt-1 text-sm font-semibold">Andalucía</div>
+                    <div class="mt-2 text-xs text-slate-300">Opciones recomendadas, 10</div>
+                    <div class="mt-2 text-xs text-slate-400">Asignaturas clave, Matemáticas II, Física</div>
+                  </div>
+
+                  <div class="rounded-2xl bg-slate-950/40 p-4 ring-1 ring-white/10">
+                    <div class="text-xs text-slate-300">Comunidad</div>
+                    <div class="mt-1 text-sm font-semibold">Madrid</div>
+                    <div class="mt-2 text-xs text-slate-300">Opciones recomendadas, 6</div>
+                    <div class="mt-2 text-xs text-slate-400">Asignaturas clave, Matemáticas II, Dibujo Técnico</div>
+                  </div>
+                </div>
+
+                <div class="mt-6 rounded-2xl bg-gradient-to-r from-emerald-400/15 to-cyan-400/10 p-4 ring-1 ring-white/10">
+                  <div class="text-sm font-semibold">Insight</div>
+                  <p class="mt-1 text-sm text-slate-300">
+                    Ajustar una asignatura puede ampliar opciones en otra comunidad, sin renunciar a tu vocación.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <img
+                  src="https://img.freepik.com/foto-gratis/hombre-alegre-ninas-sala-clase_23-2147656319.jpg"
+                  alt="Estudiantes trabajando en clase"
+                  class="h-full w-full object-cover opacity-90"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/30 to-transparent"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA + CONTACTO -->
+      <section id="contacto" class="bg-slate-950">
+        <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+          <div class="grid gap-10 lg:grid-cols-2 lg:items-start">
+            <div>
+              <h2 class="text-3xl font-extrabold tracking-tight">Solicita acceso al prototipo</h2>
+              <p class="mt-3 text-slate-300">
+                Déjanos tus datos y te contactaremos para probar Pondera+ y recoger feedback real. Tu opinión nos ayuda a construir una solución útil, clara y honesta.
+              </p>
+
+              <div class="mt-8 rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
+                <div class="text-sm font-semibold">Qué recibirás</div>
+                <ul class="mt-4 space-y-3 text-sm text-slate-300">
+                  <li class="flex gap-3">
+                    <span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                    Acceso al prototipo y guía de uso
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                    Sesión breve de feedback, 10 a 15 minutos
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                    Resumen de recomendaciones y comparaciones
+                  </li>
+                </ul>
+
+                <div class="mt-6 rounded-2xl bg-slate-950/40 p-4 ring-1 ring-white/10">
+                  <div class="text-xs text-slate-300">Contacto directo</div>
+                  <a class="mt-1 block text-sm font-semibold text-white hover:underline" href="mailto:danielglezarias@gmail.com">
+                    danielglezarias@gmail.com
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- FORM -->
+            <div class="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
+              <form id="contactForm" class="space-y-5">
+                <div>
+                  <label class="text-sm font-semibold" for="nombre">Nombre y apellidos</label>
+                  <input
+                    id="nombre"
+                    name="nombre"
+                    type="text"
+                    required
+                    class="mt-2 w-full rounded-xl bg-slate-950/40 px-4 py-3 text-sm text-white ring-1 ring-white/10 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/60"
+                    placeholder="Ejemplo, Marta Ruiz"
+                  />
+                </div>
+
+                <div class="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label class="text-sm font-semibold" for="email">Email</label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      class="mt-2 w-full rounded-xl bg-slate-950/40 px-4 py-3 text-sm text-white ring-1 ring-white/10 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/60"
+                      placeholder="tuemail@email.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label class="text-sm font-semibold" for="telefono">Teléfono, opcional</label>
+                    <input
+                      id="telefono"
+                      name="telefono"
+                      type="tel"
+                      class="mt-2 w-full rounded-xl bg-slate-950/40 px-4 py-3 text-sm text-white ring-1 ring-white/10 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/60"
+                      placeholder="+34 600 000 000"
+                    />
+                  </div>
+                </div>
+
+                <div class="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label class="text-sm font-semibold" for="etapa">Etapa</label>
+                    <select
+                      id="etapa"
+                      name="etapa"
+                      required
+                      class="mt-2 w-full rounded-xl bg-slate-950/40 px-4 py-3 text-sm text-white ring-1 ring-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-400/60"
+                    >
+                      <option value="" disabled selected>Selecciona una opción</option>
+                      <option>4º ESO</option>
+                      <option>1º Bachillerato</option>
+                      <option>2º Bachillerato</option>
+                      <option>Universidad, quiero cambiar</option>
+                      <option>Familia, tutor o orientador</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="text-sm font-semibold" for="comunidad">Comunidad autónoma</label>
+                    <input
+                      id="comunidad"
+                      name="comunidad"
+                      type="text"
+                      required
+                      class="mt-2 w-full rounded-xl bg-slate-950/40 px-4 py-3 text-sm text-white ring-1 ring-white/10 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/60"
+                      placeholder="Ejemplo, Andalucía"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="text-sm font-semibold" for="objetivo">Carrera o área de interés</label>
+                  <input
+                    id="objetivo"
+                    name="objetivo"
+                    type="text"
+                    required
+                    class="mt-2 w-full rounded-xl bg-slate-950/40 px-4 py-3 text-sm text-white ring-1 ring-white/10 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/60"
+                    placeholder="Ejemplo, Ingeniería, Psicología, Medicina"
+                  />
+                </div>
+
+                <div>
+                  <label class="text-sm font-semibold" for="mensaje">Mensaje</label>
+                  <textarea
+                    id="mensaje"
+                    name="mensaje"
+                    rows="4"
+                    required
+                    class="mt-2 w-full rounded-xl bg-slate-950/40 px-4 py-3 text-sm text-white ring-1 ring-white/10 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/60"
+                    placeholder="Cuéntanos tu situación, qué dudas tienes, y qué te gustaría comparar"
+                  ></textarea>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <input
+                    id="consent"
+                    name="consent"
+                    type="checkbox"
+                    required
+                    class="mt-1 h-4 w-4 rounded border-white/20 bg-slate-950/40 text-emerald-400 focus:ring-emerald-400/60"
+                  />
+                  <label for="consent" class="text-xs text-slate-300">
+                    Acepto que me contacten para acceso al prototipo y feedback. No compartiremos tus datos con terceros.
+                  </label>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-950 shadow-sm hover:bg-slate-100"
+                >
+                  Enviar solicitud
+                </button>
+
+                <p id="formStatus" class="hidden rounded-xl bg-white/5 p-4 text-sm ring-1 ring-white/10"></p>
+
+                <p class="text-xs text-slate-400">
+                  Si todavía no has configurado el endpoint, al enviar se abrirá tu cliente de email.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="bg-slate-950">
+        <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+          <div class="max-w-2xl">
+            <h2 class="text-3xl font-extrabold tracking-tight">Preguntas frecuentes</h2>
+            <p class="mt-3 text-slate-300">
+              Respuestas directas a las dudas más habituales en esta fase.
+            </p>
+          </div>
+
+          <div class="mt-10 grid gap-6 lg:grid-cols-2">
+            <details class="group rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
+              <summary class="flex cursor-pointer list-none items-center justify-between">
+                <span class="text-sm font-semibold">¿Pondera+ decide por mí?</span>
+                <span class="rounded-full bg-white/10 px-3 py-1 text-xs ring-1 ring-white/10 group-open:hidden">+</span>
+                <span class="hidden rounded-full bg-white/10 px-3 py-1 text-xs ring-1 ring-white/10 group-open:inline">-</span>
+              </summary>
+              <p class="mt-3 text-sm text-slate-300">
+                No, te da claridad, opciones comparables y una recomendación explicada, pero la decisión final siempre es tuya.
+              </p>
+            </details>
+
+            <details class="group rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
+              <summary class="flex cursor-pointer list-none items-center justify-between">
+                <span class="text-sm font-semibold">¿Comparáis universidades de distintas comunidades?</span>
+                <span class="rounded-full bg-white/10 px-3 py-1 text-xs ring-1 ring-white/10 group-open:hidden">+</span>
+                <span class="hidden rounded-full bg-white/10 px-3 py-1 text-xs ring-1 ring-white/10 group-open:inline">-</span>
+              </summary>
+              <p class="mt-3 text-sm text-slate-300">
+                Sí, esa es una característica central. La comparación intercomunidades es clave porque las ponderaciones y notas pueden cambiar mucho.
+              </p>
+            </details>
+
+            <details class="group rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
+              <summary class="flex cursor-pointer list-none items-center justify-between">
+                <span class="text-sm font-semibold">¿Necesito saber mis ponderaciones?</span>
+                <span class="rounded-full bg-white/10 px-3 py-1 text-xs ring-1 ring-white/10 group-open:hidden">+</span>
+                <span class="hidden rounded-full bg-white/10 px-3 py-1 text-xs ring-1 ring-white/10 group-open:inline">-</span>
+              </summary>
+              <p class="mt-3 text-sm text-slate-300">
+                No, Pondera+ está pensado para traducir esa complejidad y mostrarte resultados en lenguaje claro y comparable.
+              </p>
+            </details>
+
+            <details class="group rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
+              <summary class="flex cursor-pointer list-none items-center justify-between">
+                <span class="text-sm font-semibold">¿Es solo para 2º de Bachillerato?</span>
+                <span class="rounded-full bg-white/10 px-3 py-1 text-xs ring-1 ring-white/10 group-open:hidden">+</span>
+                <span class="hidden rounded-full bg-white/10 px-3 py-1 text-xs ring-1 ring-white/10 group-open:inline">-</span>
+              </summary>
+              <p class="mt-3 text-sm text-slate-300">
+                No, es especialmente útil en 4º de ESO y 1º de Bachillerato para evitar decisiones a ciegas, y también para quien quiere replantear su camino.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="border-t border-white/10 bg-slate-950">
+        <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6">
+          <div class="grid gap-6 md:grid-cols-2 md:items-center">
+            <div>
+              <div class="flex items-center gap-2">
+                <div class="grid h-9 w-9 place-items-center rounded-xl bg-white/10 ring-1 ring-white/15">
+                  <span class="text-lg font-black tracking-tight">P+</span>
+                </div>
+                <div class="text-sm font-semibold">Pondera+</div>
+              </div>
+              <p class="mt-3 text-xs text-slate-400">
+                Proyecto en fase de prototipo, orientado a validar con usuarios reales.
+              </p>
+            </div>
+
+            <div class="md:text-right">
+              <a class="text-sm font-semibold text-white hover:underline" href="mailto:danielglezarias@gmail.com">
+                danielglezarias@gmail.com
+              </a>
+              <p class="mt-2 text-xs text-slate-400">
+                © <span id="year"></span> Pondera+, todos los derechos reservados.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-8 rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
+            <div class="text-xs font-semibold text-slate-200">Atribución imágenes</div>
+            <ul class="mt-2 list-disc space-y-1 pl-5 text-xs text-slate-400">
+              <li>
+                Freepik, Amigos charlando y estudiando en escaleras,
+                <a class="underline hover:text-white" href="https://www.freepik.es/foto-gratis/amigos-charlando-estudiando-escaleras-universidad_2618541.htm" target="_blank" rel="noreferrer">ver fuente</a>
+              </li>
+              <li>
+                Freepik, Encantadora colegiala concentrada en lectura,
+                <a class="underline hover:text-white" href="https://www.freepik.es/foto-gratis/encantadora-colegiala-concentrada-lectura_1308483.htm" target="_blank" rel="noreferrer">ver fuente</a>
+              </li>
+              <li>
+                Freepik, Hombre alegre con niñas en sala de clase,
+                <a class="underline hover:text-white" href="https://www.freepik.es/foto-gratis/hombre-alegre-ninas-sala-clase_1261465.htm" target="_blank" rel="noreferrer">ver fuente</a>
+              </li>
+              <li>
+                Freepik, Placer primero, luego ir a nuestros deberes,
+                <a class="underline hover:text-white" href="https://www.freepik.es/foto-gratis/placer-primero-luego-ir-nuestros-deberes_12115480.htm" target="_blank" rel="noreferrer">ver fuente</a>
+              </li>
+              <li>
+                Freepik, Hombre y mujeres con mochilas,
+                <a class="underline hover:text-white" href="https://www.freepik.es/foto-gratis/hombre-mujeres-mochilas_1379059.htm" target="_blank" rel="noreferrer">ver fuente</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- JS, envío del formulario -->
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const form = document.getElementById("contactForm");
+      const statusEl = document.getElementById("formStatus");
+
+      function showStatus(message, ok = true) {
+        statusEl.classList.remove("hidden");
+        statusEl.classList.toggle("text-emerald-200", ok);
+        statusEl.classList.toggle("text-rose-200", !ok);
+        statusEl.textContent = message;
+      }
+
+      function endpointConfigured() {
+        return (
+          typeof CONTACT_ENDPOINT === "string" &&
+          CONTACT_ENDPOINT.trim() &&
+          !CONTACT_ENDPOINT.includes("REEMPLAZA_AQUI_TU_ENDPOINT")
+        );
+      }
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const data = Object.fromEntries(new FormData(form).entries());
+        data.to = CONTACT_EMAIL;
+        data.source = "pondera_plus_landing";
+
+        if (!endpointConfigured()) {
+          const subject = encodeURIComponent("Solicitud acceso prototipo Pondera+");
+          const body = encodeURIComponent(
+            `Hola Dani,\n\nQuiero solicitar acceso al prototipo de Pondera+.\n\n` +
+              `Nombre: ${data.nombre}\n` +
+              `Email: ${data.email}\n` +
+              `Teléfono: ${data.telefono || "-"}\n` +
+              `Etapa: ${data.etapa}\n` +
+              `Comunidad: ${data.comunidad}\n` +
+              `Interés: ${data.objetivo}\n\n` +
+              `Mensaje:\n${data.mensaje}\n`
+          );
+          window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+          showStatus("Endpoint no configurado, se ha abierto tu email para enviar la solicitud.", true);
+          return;
+        }
+
+        try {
+          showStatus("Enviando tu solicitud, un momento por favor.", true);
+
+          const res = await fetch(CONTACT_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+
+          if (!res.ok) {
+            throw new Error("Respuesta no válida del servidor");
+          }
+
+          form.reset();
+          showStatus("Solicitud enviada correctamente. Gracias, te contactaremos pronto.", true);
+        } catch (err) {
+          showStatus(
+            "No se pudo enviar la solicitud por el endpoint. Como alternativa, escribe a danielglezarias@gmail.com.",
+            false
+          );
+        }
+      });
+    </script>
+  </body>
+</html>
